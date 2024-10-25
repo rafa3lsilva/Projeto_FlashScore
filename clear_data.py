@@ -5,8 +5,8 @@ from tinydb import TinyDB
 colecao_partidas1 = TinyDB("db/base_flashscore_temp_atual.json")
 df = pd.DataFrame(colecao_partidas1.all())
 
-
-df = df.sort_values(["Date", "Time"])
+df["Date"] = pd.to_datetime(df["Date"], dayfirst=True)
+df = df.sort_values(["Date", "Time"], ascending=True)
 
 df = df.dropna()
 df = df.reset_index(drop=True)

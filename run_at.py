@@ -8,7 +8,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from tqdm.auto import tqdm
 import warnings
-from modules.Ligas_temp_atual import ligas
+from modules.Ligas import ligas
 from modules.get_odds import GetOdds
 
 
