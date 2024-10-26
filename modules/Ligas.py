@@ -1,3 +1,3 @@
 ligas = [
-    'brasil/brasileirao-betano', 'brasil/serie-b', 'brasil/serie-c'
+    'brasil/brasileirao-betano', 'brasil/serie-b', 'brasil/serie-c', 'argentina/torneo-betano'
 ]  
