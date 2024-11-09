@@ -4,5 +4,6 @@ ligas = [
     'belgica/challenger-pro-league', 'bulgaria/parva-liga', 'chile/primeira-divisao', 'china/superliga', 'colombia/primera-a',
     'croacia/hnl', 'republica-tcheca/chance-liga', 'dinamarca/superliga', 'equador/liga-pro', 'egito/primeira-liga',
     'inglaterra/campeonato-ingles', 'inglaterra/2-divisao', 'inglaterra/liga-1', 'inglaterra/liga-2', 'estonia/meistriliiga',
-    'finlandia/veikkausliiga'
+    'finlandia/veikkausliiga', 'franca/ligue-1', 'franca/ligue-2', 'alemanha/bundesliga', 'alemanha/2-bundesliga', 'alemanha/3-liga',
+    'grecia/superliga'
 ]  
