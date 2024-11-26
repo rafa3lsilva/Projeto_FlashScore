@@ -6,5 +6,7 @@ ligas = [
     'inglaterra/campeonato-ingles', 'inglaterra/2-divisao', 'inglaterra/liga-1', 'inglaterra/liga-2', 'estonia/meistriliiga',
     'finlandia/veikkausliiga', 'franca/ligue-1', 'franca/ligue-2', 'alemanha/bundesliga', 'alemanha/2-bundesliga', 'alemanha/3-liga',
     'grecia/superliga', 'hungria/otp-bank-liga', 'islandia/besta-deild-karla', 'irlanda/divisao-premier', 'israel/ligat-ha-al',
-    'italia/serie-a', 'italia/serie-b', 'japao/liga-j1', 'japao/liga-j2', 'mexico/liga-mx'
+    'italia/serie-a', 'italia/serie-b', 'japao/liga-j1', 'japao/liga-j2', 'mexico/liga-mx', 'holanda/eredivisie', 'holanda/eerste-divisie',
+    'irlanda-do-norte/nifl-premiership', 'noruega/serie-de-elite', 'noruega/obos-ligaen', 'paraguai/primeira-divisao', 'peru/liga-1',
+    'polonia/ekstraklasa', 'polonia/divisao-1',
 ]  
