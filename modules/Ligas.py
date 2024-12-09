@@ -8,5 +8,9 @@ ligas = [
     'grecia/superliga', 'hungria/otp-bank-liga', 'islandia/besta-deild-karla', 'irlanda/divisao-premier', 'israel/ligat-ha-al',
     'italia/serie-a', 'italia/serie-b', 'japao/liga-j1', 'japao/liga-j2', 'mexico/liga-mx', 'holanda/eredivisie', 'holanda/eerste-divisie',
     'irlanda-do-norte/nifl-premiership', 'noruega/serie-de-elite', 'noruega/obos-ligaen', 'paraguai/primeira-divisao', 'peru/liga-1',
-    'polonia/ekstraklasa', 'polonia/divisao-1',
+    'polonia/ekstraklasa', 'polonia/divisao-1', 'portugal/liga-portugal', 'portugal/liga-portugal-2', 'romenia/superliga',
+    'arabia-saudita/primeira-liga', 'escocia/primeira-liga', 'escocia/divisao-1', 'escocia/segunda-divisao', 'servia/superliga',
+    'eslovaquia/liga-nike', 'eslovenia/liga-prva', 'coreia-do-sul/liga-k-1', 'coreia-do-sul/liga-k-2', 'espanha/laliga', 'espanha/laliga2',
+    'suecia/allsvenskan', 'suecia/superettan', 'suica/superliga', 'turquia/super-lig', 'ucrania/primeira-liga', 'uruguai/primeira-divisao',
+    'eua/mls', 'venezuela/liga-futve', 'pais-de-gales/cymru-premier'
 ]  
