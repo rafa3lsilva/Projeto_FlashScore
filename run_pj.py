@@ -19,7 +19,7 @@ firefox_options = Options()
 firefox_options.add_argument("--headless")  # Executa em modo headless
 
 # Inicia o serviço do GeckoDriver
-service = Service('geckodriver.exe')  
+service = Service('geckodriver.exe')
 
 # Cria uma instância do Firefox
 driver = webdriver.Firefox(service=service, options=firefox_options)
@@ -34,25 +34,27 @@ for liga in tqdm(ligas):
     driver.get(url)
 
     try:
-        WebDriverWait(driver, 8).until(EC.visibility_of_element_located((By.CSS_SELECTOR,'button#onetrust-accept-btn-handler')))
-        button_cookies = driver.find_element(By.CSS_SELECTOR,'button#onetrust-accept-btn-handler')
+        WebDriverWait(driver, 8).until(EC.visibility_of_element_located(
+            (By.CSS_SELECTOR, 'button#onetrust-accept-btn-handler')))
+        button_cookies = driver.find_element(
+            By.CSS_SELECTOR, 'button#onetrust-accept-btn-handler')
         button_cookies.click()
     except:
         print("cookies already closed")
-        
-    sleep(3)    
-        
-    jogos = driver.find_elements(By.CSS_SELECTOR,'div.event__match')
+
+    sleep(3)
+
+    jogos = driver.find_elements(By.CSS_SELECTOR, 'div.event__match')
 
     sleep(3)
     jogos_data = []
-    id_jogos =[]
+    id_jogos = []
 
     for i in jogos:
-        id_jogos.append(i.get_attribute("id")[4:])  
-        id_jogos = id_jogos[:10] 
-        
-    season = driver.find_element(By.CSS_SELECTOR,'div.heading__info').text 
+        id_jogos.append(i.get_attribute("id")[4:])
+        id_jogos = id_jogos[:10]
+
+    season = driver.find_element(By.CSS_SELECTOR, 'div.heading__info').text
     print(driver.title)
 
     for id_jogo in tqdm(id_jogos):
@@ -61,36 +63,35 @@ for liga in tqdm(ligas):
             jogo = {}
 
             # Obter detalhes gerais do jogo
-            data.get_match_details(id_jogo=id_jogo , jogo=jogo, season=season)
+            data.get_match_details(id_jogo=id_jogo, jogo=jogo, season=season)
 
             # Obter odds de 1x2 do jogo no Tempo Regulamentar
-            data.get_odds_1x2(id_jogo=id_jogo , jogo=jogo)
-                        
+            data.get_odds_1x2(id_jogo=id_jogo, jogo=jogo)
+
             # Obter odds de Acima/Abaixo do 1º Tempo
-            data.get_ou_first_half(id_jogo=id_jogo , jogo=jogo)
+            data.get_ou_first_half(id_jogo=id_jogo, jogo=jogo)
 
             # Obter odds de Acima/Abaixo do Tempo Regulamentar
-            data.get_ou_full_time(id_jogo=id_jogo , jogo=jogo)
+            data.get_ou_full_time(id_jogo=id_jogo, jogo=jogo)
 
             # Obter odds de Ambos Marcam (BTTS) no Tempo Regulamentar
-            data.get_btts_full_time(id_jogo=id_jogo , jogo=jogo)
-           
-            jogos_data.append(jogo)               
+            data.get_btts_full_time(id_jogo=id_jogo, jogo=jogo)
+
+            jogos_data.append(jogo)
             df_liga = pd.DataFrame(jogos_data)
             df = pd.concat([df, df_liga], ignore_index=True)
-            df.sort_values(['Date','Time'], inplace=True)
+            df.sort_values(['Date', 'Time'], inplace=True)
             df.reset_index(drop=True, inplace=True)
             df.index = df.index + 1
             df.index.name = 'Nº'
-            #print(jogo)                
-                                
-                
+            # print(jogo)
+
         except:
             print(f'Erro ao coletar dados do jogo {id_jogo}')
-            sleep(0.5) 
-            
- 
-driver.quit()             
+            sleep(0.5)
+
+
+driver.quit()
 df = df[
     [
         "Id",
@@ -148,14 +149,16 @@ df.columns = [
     "Odd_BTTS_Yes",
     "Odd_BTTS_No",
 ]
-  
+
 df.drop_duplicates(subset=['Id'], inplace=True)
 
 
-
-diretorio ="base_excel"
+diretorio = "base_excel"
 if not os.path.exists(diretorio):
     os.makedirs(diretorio)
-    
-df.to_excel(os.path.join(diretorio, 'jogos_do_dia.xlsx'), index=False)       
-                 
+
+df["Date"] = pd.to_datetime(df["Date"], dayfirst=True)
+df = df.sort_values(["Date", "Time"], ascending=True)
+
+df.to_excel(os.path.join(diretorio, 'jogos_do_dia.xlsx'), index=False)
+df.to_csv(os.path.join(diretorio, 'jogos_do_dia.csv'), index=False)
