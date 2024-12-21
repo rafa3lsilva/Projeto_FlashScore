@@ -157,10 +157,7 @@ diretorio = "base_excel"
 if not os.path.exists(diretorio):
     os.makedirs(diretorio)
 
-# Formatando a data no formato YYYY/MM/DD
 df["Date"] = pd.to_datetime(df["Date"], dayfirst=True)
-df["Date"] = df["Date"].dt.strftime("%Y/%m/%d")
 df = df.sort_values(["Date", "Time"], ascending=True)
-
 df.to_excel(os.path.join(diretorio, 'jogos_do_dia.xlsx'), index=False)
 df.to_csv(os.path.join(diretorio, 'jogos_do_dia.csv'), index=False)
