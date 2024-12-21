@@ -1,11 +1,11 @@
 # Ignorar arquivos JSON
-*.json
+.json
 
 # Ignorar a pasta do ambiente virtual
 .venv/
 
 # Ignorar arquivos CSV
-*.csv
+.csv
 
 # Ignorar arquivos Excel
-*.xlsx
+.xlsx
